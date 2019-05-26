@@ -1,0 +1,168 @@
+body { 
+    margin: 0;
+    font-family: Arial;
+}
+.container {
+    display: grid;
+    grid-template: auto 1fr / 8% 1fr;
+    grid-template-areas: "header header" "menu peliculas";
+    height: 100vh;
+}
+.header {
+    position: fixed;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "logo search user";
+    grid-template-columns: 25% 1fr 25%;
+    grid-area: header;
+    background: #ffffff;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+    align-items: center;
+    z-index: 1;
+}
+.figure {
+    margin: 0;
+    padding: 0;
+}
+.logo {
+    grid-area: logo;
+}
+.logo img {
+    width: 100%;
+    max-width: 80px;
+    max-height: 80px;
+}
+.search {
+    grid-area: search;
+}
+.search input {
+    width: 100%;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    background: #f2f2f2;
+    border: none;
+    box-sizing: border-box;
+}
+.user {
+    display: flex;
+    grid-area: user;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+.avatar {
+    width: 100%;
+    max-width: 45px;
+    height: 45px;
+    margin: 0 10px;
+}
+.menu {
+    background: #fd5f60;
+    grid-area: menu;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    height: 100%;
+}
+.items {
+    list-style: none;
+    padding: 5em 0 0 0px;
+}
+.items li {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+.items li:hover {
+    opacity: 0.8;
+}
+.items p {
+    margin: 6px 0 0 0;
+    font-size: 14px;
+}
+.section-peliculas {
+    margin: 1em 0 2em 0;
+}
+.peliculas {
+    grid-area: peliculas;
+    padding: 30px;
+    margin-top: 4em;
+}
+.list-peliculas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 250px;
+    gap: 50px;
+}
+.pelicula {
+    background: #e5e5e5;
+    position: relative;
+}
+.pelicula img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.p-overlay {
+    background-color: #ff595c99;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding-left: 10px;
+}
+.p-overlay h4 {
+    margin-bottom: 5px;
+}
+.pelicula:hover .p-overlay {
+    display: grid;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        display: grid;
+        grid-template: auto 1fr / 12% 1fr;
+        grid-template-areas: "header header" "menu animes";
+        height: 100vh;
+    }
+    .header {
+        display: grid;
+        grid-template-areas: "logo user" "search search ";
+        grid-template-rows: 2;
+        grid-template-columns: 1fr 1fr;
+    }
+    .logo {
+        grid-area: logo;
+    }
+    .user {
+        grid-area: user;
+    }
+    .search {
+        grid-area: search;
+        margin: 10px;
+    }
+    .list-peliculas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2;
+        gap: 50px;
+    }
+    .section-peliculas {
+        margin-top: 4em;
+    }
+    .items {
+        padding-top: 8em;
+    }
+}
